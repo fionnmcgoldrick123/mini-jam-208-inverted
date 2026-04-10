@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
@@ -24,6 +25,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float groundCheckDistance = 0.05f;
     [SerializeField] private LayerMask groundLayer;
 
+    [Header("Health")]
+    [SerializeField] private bool isDead = false;
+
+    public UnityEvent OnPlayerDeath = new UnityEvent();
+
     private Rigidbody2D rb;
     private bool isGrounded;
     private bool wasGrounded;
@@ -40,6 +46,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (isDead) return;
+
         wasGrounded = isGrounded;
         UpdateGroundedState();
         HandleJumpInput();
@@ -47,6 +55,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isDead) return;
+
         ApplyMovement();
         ApplyGravityScale();
         TryJump();
@@ -136,6 +146,25 @@ public class PlayerController : MonoBehaviour
             coyoteTimer = 0;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (isDead) return;
+
+        Enemy enemy = other.GetComponent<Enemy>();
+        if (enemy != null)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        isDead = true;
+        rb.linearVelocity = Vector2.zero;
+        rb.isKinematic = true;
+        OnPlayerDeath?.Invoke();
     }
 
     private void OnDrawGizmos()

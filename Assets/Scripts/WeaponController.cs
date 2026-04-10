@@ -89,12 +89,14 @@ public class WeaponController : MonoBehaviour
             return;
         }
 
+        Debug.Log($"Spawning {stats.pelletsPerShot} pellets - SpreadAngle: {stats.spreadAngle}, Range: {stats.bulletRange}, Speed: {stats.bulletSpeed}");
+
         for (int i = 0; i < stats.pelletsPerShot; i++)
         {
             Vector2 bulletDirection = direction;
 
-            // Apply spread for shotgun
-            if (stats.pelletsPerShot > 1)
+            // Always apply spread angle for shotgun pellets
+            if (stats.spreadAngle > 0)
             {
                 float angle = Random.Range(-stats.spreadAngle * 0.5f, stats.spreadAngle * 0.5f);
                 bulletDirection = Quaternion.Euler(0, 0, angle) * direction;
@@ -114,6 +116,8 @@ public class WeaponController : MonoBehaviour
             bulletGo.transform.rotation = Quaternion.Euler(0, 0, rotation);
 
             bullet.Init(bulletDirection, stats.bulletSpeed, stats.bulletRange, stats.damage, isRevolver, this);
+
+            Debug.Log($"Pellet {i + 1}/{stats.pelletsPerShot} spawned - Direction: {bulletDirection}, Speed: {stats.bulletSpeed}");
         }
     }
 

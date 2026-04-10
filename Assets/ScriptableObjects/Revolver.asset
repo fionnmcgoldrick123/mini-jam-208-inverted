@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Revolver
   m_EditorClassIdentifier: 
   gunName: Revolver
-  fireRate: 1
+  fireRate: 10
   pelletsPerShot: 1
   spreadAngle: 0
   bulletPrefab: {fileID: 1935227397540580479, guid: 88473aa44936d06458a43d6a0c357fb1, type: 3}
