@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded;
     private bool wasGrounded;
+
+    public bool IsGrounded => isGrounded;
     private float coyoteTimer;
     private float jumpBufferTimer;
     private bool jumpCut;
