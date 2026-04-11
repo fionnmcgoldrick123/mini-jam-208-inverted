@@ -91,11 +91,24 @@ public class WeaponController : MonoBehaviour
         Vector2 direction = GetMouseDirection();
         SpawnBullets(shotgunStats, direction, isRevolver: false);
 
-        // Propel player in the opposite direction of the shot
+        // Propel player in the opposite direction of the shot.
+        // We set the velocity component along the recoil axis directly so the
+        // push is always the same magnitude regardless of current player velocity.
         if (playerRb != null && shotgunStats.playerRecoilForce > 0)
         {
-            Vector2 recoil = -direction.normalized * shotgunStats.playerRecoilForce;
-            playerRb.AddForce(recoil, ForceMode2D.Impulse);
+            Vector2 recoilDir = -direction.normalized;
+            Vector2 currentVel = playerRb.linearVelocity;
+
+            // Project current velocity onto the recoil direction.
+            float currentAlongRecoil = Vector2.Dot(currentVel, recoilDir);
+
+            // Only override if the player isn't already moving faster than the recoil force in that direction.
+            float desiredSpeed = shotgunStats.playerRecoilForce;
+            float newSpeed = Mathf.Max(currentAlongRecoil, desiredSpeed);
+
+            // Replace just the component along the recoil axis, preserve the perpendicular component.
+            Vector2 perp = currentVel - currentAlongRecoil * recoilDir;
+            playerRb.linearVelocity = perp + recoilDir * newSpeed;
 
             PlayerController pc = playerRb.GetComponent<PlayerController>();
             if (pc != null)
