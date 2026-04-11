@@ -26,6 +26,7 @@ public class WeaponController : MonoBehaviour
     private int shotgunAmmo;
 
     private Camera mainCamera;
+    private PlayerController playerController;
 
     private void Awake()
     {
@@ -40,10 +41,15 @@ public class WeaponController : MonoBehaviour
             gunView = GetComponentInChildren<GunView>();
         if (cameraShake == null)
             cameraShake = FindFirstObjectByType<CameraShake>();
+
+        playerController = GetComponentInParent<PlayerController>();
     }
 
     private void Update()
     {
+        if (playerController != null && playerController.IsDead)
+            return;
+
         revolverCooldown -= Time.deltaTime;
         shotgunCooldown -= Time.deltaTime;
 

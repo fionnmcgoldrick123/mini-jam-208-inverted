@@ -343,7 +343,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnDeathAnimationComplete()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneTransition.ReloadActiveScene();
     }
 
     private void OnDrawGizmos()

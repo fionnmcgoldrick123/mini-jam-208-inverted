@@ -42,16 +42,16 @@ public class LevelGoal : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(nextSceneName))
         {
-            SceneManager.LoadScene(nextSceneName);
+            SceneTransition.LoadScene(nextSceneName);
         }
         else if (nextSceneIndex >= 0)
         {
-            SceneManager.LoadScene(nextSceneIndex);
+            SceneTransition.LoadScene(nextSceneIndex);
         }
         else
         {
             int next = SceneManager.GetActiveScene().buildIndex + 1;
-            SceneManager.LoadScene(next);
+            SceneTransition.LoadScene(next);
         }
     }
 }
