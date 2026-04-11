@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float airDeceleration = 10f;
 
     [Header("Momentum")]
-    [SerializeField] private float overSpeedDeceleration = 20f;
+    [SerializeField] private float overSpeedDeceleration = 8f;
     [SerializeField] private float maxOverSpeed = 25f;
 
     [Header("Jump")]
@@ -45,10 +45,13 @@ public class PlayerController : MonoBehaviour
 
     public bool IsGrounded => isGrounded;
     public bool IsDead => isDead;
+    public float HorizontalSpeed => rb != null ? Mathf.Abs(rb.linearVelocity.x) : 0f;
+    public float MaxOverSpeed => maxOverSpeed;
     private float coyoteTimer;
     private float jumpBufferTimer;
     private bool jumpCut;
     private bool isJumping;
+    private bool bhopProtected;
 
     private void Awake()
     {
@@ -123,6 +126,12 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyMovement()
     {
+        if (bhopProtected)
+        {
+            bhopProtected = false;
+            return;
+        }
+
         float moveX = Input.GetAxisRaw("Horizontal");
         float inputSpeed = moveX * maxSpeed;
         float currentX = rb.linearVelocity.x;
@@ -189,6 +198,8 @@ public class PlayerController : MonoBehaviour
             jumpCut = false;
             jumpBufferTimer = 0;
             coyoteTimer = 0;
+            if (Mathf.Abs(rb.linearVelocity.x) > maxSpeed)
+                bhopProtected = true;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
     }
