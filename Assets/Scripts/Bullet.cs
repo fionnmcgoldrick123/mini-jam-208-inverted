@@ -44,7 +44,7 @@ public class Bullet : MonoBehaviour
             hasHit = true;
             bool killed = enemy.TakeDamage(damage);
 
-            if (isRevolverBullet && killed)
+            if (killed)
             {
                 owner?.OnRevolverKill();
             }

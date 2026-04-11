@@ -28,12 +28,17 @@ public class Spring : MonoBehaviour
                 resetRoutine = StartCoroutine(ResetAnimationAfterDelay());
             }
 
+            PlayerController playerController = collision.GetComponent<PlayerController>();
+            if (playerController != null)
+            {
+                playerController.LaunchFromSpring(bounceForce);
+                return;
+            }
+
             Rigidbody2D rb = collision.attachedRigidbody;
             if (rb != null)
             {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
-
-                rb.AddForce(new Vector2(0, bounceForce), ForceMode2D.Impulse);
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, bounceForce);
             }
         }
     }

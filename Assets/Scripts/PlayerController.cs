@@ -193,6 +193,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void LaunchFromSpring(float springForce)
+    {
+        if (isDead)
+            return;
+
+        isJumping = false;
+        jumpCut = false;
+        jumpBufferTimer = 0f;
+        coyoteTimer = 0f;
+        rb.gravityScale = baseGravityScale;
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, springForce);
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (isDead) return;

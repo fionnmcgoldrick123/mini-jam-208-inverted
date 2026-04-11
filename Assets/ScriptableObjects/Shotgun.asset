@@ -15,10 +15,10 @@ MonoBehaviour:
   gunName: Shotgun
   fireRate: 20
   pelletsPerShot: 5
-  spreadAngle: 50
+  spreadAngle: 30
   bulletPrefab: {fileID: 1935227397540580479, guid: 88473aa44936d06458a43d6a0c357fb1, type: 3}
   bulletSpeed: 20
-  bulletRange: 100
+  bulletRange: 5
   damage: 1
   playerRecoilForce: 30
   infiniteAmmo: 0
