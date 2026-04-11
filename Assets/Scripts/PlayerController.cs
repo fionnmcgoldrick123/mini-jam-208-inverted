@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float wallJumpUpForce = 14f;
     [SerializeField] private float wallJumpSideForce = 10f;
     [SerializeField] private float wallCheckDistance = 0.3f;
+    [SerializeField] private float wallJumpBufferTime = 0.1f;
     [SerializeField] private float wallJumpLockTime = 0.15f;
     [SerializeField] private LayerMask wallLayer;
 
@@ -61,6 +62,8 @@ public class PlayerController : MonoBehaviour
     private bool isJumping;
     private bool bhopProtected;
     private int wallDirection;
+    private int bufferedWallDirection;
+    private float wallJumpBufferTimer;
     private float wallJumpLockTimer;
 
     public void SetBhopProtected() { bhopProtected = true; }
@@ -129,20 +132,30 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             wallDirection = 0;
+            bufferedWallDirection = 0;
+            wallJumpBufferTimer = 0f;
             return;
         }
 
         bool wallRight = Physics2D.Raycast(transform.position, Vector2.right, wallCheckDistance, wallLayer);
         bool wallLeft  = Physics2D.Raycast(transform.position, Vector2.left,  wallCheckDistance, wallLayer);
 
-        float moveX = Input.GetAxisRaw("Horizontal");
-
-        if (wallRight && moveX > 0.01f)
+        if (wallRight)
             wallDirection = 1;
-        else if (wallLeft && moveX < -0.01f)
+        else if (wallLeft)
             wallDirection = -1;
         else
             wallDirection = 0;
+
+        if (wallDirection != 0)
+        {
+            bufferedWallDirection = wallDirection;
+            wallJumpBufferTimer = wallJumpBufferTime;
+        }
+        else
+        {
+            wallJumpBufferTimer -= Time.deltaTime;
+        }
     }
 
     private void HandleJumpInput()
@@ -253,17 +266,30 @@ public class PlayerController : MonoBehaviour
 
     private void TryWallJump()
     {
-        if (jumpBufferTimer <= 0 || wallDirection == 0 || isGrounded)
+        int jumpWallDirection = wallDirection != 0 ? wallDirection : (wallJumpBufferTimer > 0f ? bufferedWallDirection : 0);
+
+        if (jumpBufferTimer <= 0 || jumpWallDirection == 0 || isGrounded || !IsMovingIntoWall(jumpWallDirection))
             return;
 
         isJumping = true;
         jumpCut = false;
         jumpBufferTimer = 0;
+        wallJumpBufferTimer = 0f;
         wallJumpLockTimer = wallJumpLockTime;
         bhopProtected = true;
 
-        float sideVelocity = -wallDirection * wallJumpSideForce;
+        float sideVelocity = -jumpWallDirection * wallJumpSideForce;
         rb.linearVelocity = new Vector2(sideVelocity, wallJumpUpForce);
+    }
+
+    private bool IsMovingIntoWall(int direction)
+    {
+        float moveX = Input.GetAxisRaw("Horizontal");
+
+        if (Mathf.Abs(moveX) > 0.01f)
+            return direction > 0 ? moveX > 0f : moveX < 0f;
+
+        return direction > 0 ? rb.linearVelocity.x > 0.01f : rb.linearVelocity.x < -0.01f;
     }
 
     public void LaunchFromSpring(float springForce)
