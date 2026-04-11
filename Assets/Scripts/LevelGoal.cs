@@ -10,7 +10,16 @@ public class LevelGoal : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float loadDelay = 0.5f;
 
+    private ParticleSystem particles;
+    private SpriteRenderer spriteRenderer;
+
     private bool collected = false;
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        particles = GetComponentInChildren<ParticleSystem>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -19,6 +28,12 @@ public class LevelGoal : MonoBehaviour
         if (other.GetComponent<PlayerController>() != null)
         {
             collected = true;
+            if (particles != null)
+                particles.Play();
+                
+            if (spriteRenderer != null)
+                spriteRenderer.enabled = false;
+
             Invoke(nameof(LoadNextScene), loadDelay);
         }
     }
