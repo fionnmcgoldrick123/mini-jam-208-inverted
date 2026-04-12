@@ -108,8 +108,6 @@ public class SceneTransition : MonoBehaviour
         endRoutine = StartCoroutine(WaitForEndThenLoad());
     }
 
-    // Optional: call this from an animation event on the End clip to load immediately
-    // instead of waiting for the coroutine to detect completion.
     public void OnEndTransitionComplete()
     {
         if (endRoutine != null)

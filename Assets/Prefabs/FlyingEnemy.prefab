@@ -52,6 +52,10 @@ MonoBehaviour:
   moveHorizontal: 1
   moveSpeed: 3
   maxDistance: 4.31
+  projectilePrefab: {fileID: 8962528575007425660, guid: f5a6fda2e2288c84082c7687110add32, type: 3}
+  projectileSpeed: 8
+  shootInterval: 2
+  projectileSpawnOffset: 0.6
   maxHealth: 3
 --- !u!114 &6355563578414065381
 MonoBehaviour:
@@ -65,6 +69,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554434b461dbfd74eb307ddd0ff7ceaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 0}
+  projectileSpeed: 8
+  shootInterval: 2
+  projectileSpawnOffset: 0.6
   maxHealth: 1
 --- !u!212 &7626611117938856044
 SpriteRenderer:

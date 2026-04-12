@@ -21,11 +21,13 @@ public class WeaponController : MonoBehaviour
     [Header("UI (Optional)")]
     [SerializeField] private TMPro.TextMeshProUGUI shotgunAmmoText;
     [SerializeField] private Animator shotgunAmmoAnimator;
+    [SerializeField] private float shotgunAmmoAnimationResetDelay = 0.12f;
     
 
     private float revolverCooldown;
     private float shotgunCooldown;
     private int shotgunAmmo;
+    private Coroutine shotgunAmmoResetRoutine;
 
     private Camera mainCamera;
     private PlayerController playerController;
@@ -99,11 +101,9 @@ public class WeaponController : MonoBehaviour
             Vector2 currentVel = playerRb.linearVelocity;
             float currentAlongRecoil = Vector2.Dot(currentVel, recoilDir);
 
-            // Only override if the player isn't already moving faster than the recoil force in that direction.
             float desiredSpeed = shotgunStats.playerRecoilForce;
             float newSpeed = Mathf.Max(currentAlongRecoil, desiredSpeed);
 
-            // Replace just the component along the recoil axis, preserve the perpendicular component.
             Vector2 perp = currentVel - currentAlongRecoil * recoilDir;
             playerRb.linearVelocity = perp + recoilDir * newSpeed;
 
@@ -128,7 +128,6 @@ public class WeaponController : MonoBehaviour
         {
             Vector2 bulletDirection = direction;
 
-            // Always apply spread angle for shotgun pellets
             if (stats.spreadAngle > 0)
             {
                 float angle = Random.Range(-stats.spreadAngle * 0.5f, stats.spreadAngle * 0.5f);
@@ -164,8 +163,27 @@ public class WeaponController : MonoBehaviour
         shotgunAmmo++;
         if (shotgunAmmoAnimator != null)
         {
+            shotgunAmmoAnimator.ResetTrigger("Bullet");
             shotgunAmmoAnimator.SetTrigger("Bullet");
+
+            if (shotgunAmmoResetRoutine != null)
+                StopCoroutine(shotgunAmmoResetRoutine);
+
+            shotgunAmmoResetRoutine = StartCoroutine(ResetShotgunAmmoAnimationAfterDelay());
         }
+    }
+
+    private System.Collections.IEnumerator ResetShotgunAmmoAnimationAfterDelay()
+    {
+        yield return new WaitForSeconds(shotgunAmmoAnimationResetDelay);
+
+        if (shotgunAmmoAnimator != null)
+        {
+            shotgunAmmoAnimator.Rebind();
+            shotgunAmmoAnimator.Update(0f);
+        }
+
+        shotgunAmmoResetRoutine = null;
     }
 
     private void UpdateAmmoUI()

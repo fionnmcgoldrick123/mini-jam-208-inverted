@@ -346,12 +346,13 @@ MonoBehaviour:
   firePoint: {fileID: 3950720654860677888}
   playerRb: {fileID: 3102248566110250253}
   gunView: {fileID: 8806626624275682494}
-  cameraShake: {fileID: 0}
+  cameraShake: {fileID: 3348994088824081619, guid: bae890b39f18dde4f863912b994b1ddf, type: 3}
   revolverShakeIntensity: 0.05
   revolverShakeDuration: 0.08
   shotgunShakeIntensity: 0.5
   shotgunShakeDuration: 0.12
   shotgunAmmoText: {fileID: 0}
+  shotgunAmmoAnimator: {fileID: 0}
 --- !u!114 &8050381305028736681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,10 +371,19 @@ MonoBehaviour:
   airAcceleration: 100
   airDeceleration: 30
   overSpeedDeceleration: 20
+  overSpeedGroundedBleed: 2
   maxOverSpeed: 25
   jumpForce: 12
   coyoteTime: 0.1
   jumpBufferTime: 0.1
+  wallJumpUpForce: 14
+  wallJumpSideForce: 10
+  wallCheckDistance: 0.3
+  wallJumpBufferTime: 0.1
+  wallJumpLockTime: 0.15
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 0
   baseGravityScale: 3
   fallGravityScale: 6
   jumpCutGravityScale: 12
@@ -413,6 +423,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cae6d8d1b66c2b42830da240c4ea5c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedThreshold: 10
+  spawnInterval: 0.05
+  fadeDuration: 0.2
+  afterImageColor: {r: 0.5, g: 0.75, b: 1, a: 0.4}
 --- !u!61 &240532935157104147
 BoxCollider2D:
   m_ObjectHideFlags: 0

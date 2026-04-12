@@ -41,7 +41,6 @@ public class PlayerAnimator : MonoBehaviour
 
     private void UpdateAnimationParameters()
     {
-        // Speed parameter — driven by horizontal velocity magnitude
         float speed = Mathf.Abs(rb.linearVelocity.x);
         animator.SetFloat("Speed", speed);
 
