@@ -19,6 +19,7 @@ public class LevelGoal : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         particles = GetComponentInChildren<ParticleSystem>();
+        spriteRenderer.enabled = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
