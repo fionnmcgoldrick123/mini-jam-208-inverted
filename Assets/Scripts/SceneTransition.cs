@@ -155,6 +155,7 @@ public class SceneTransition : MonoBehaviour
         ExecuteLoad();
     }
 
+    [SerializeField] private float startTransitionDuration = 0.25f;
     private void BeginStartTransition()
     {
         if (startRoutine != null)
@@ -178,7 +179,24 @@ public class SceneTransition : MonoBehaviour
         animator.ResetTrigger(EndTrigger);
         animator.SetTrigger(StartTrigger);
 
+        if (endRoutine != null)
+        {
+            StopCoroutine(endRoutine);
+            endRoutine = null;
+        }
+
+        StartCoroutine(ResumeTimerAfterStartTransition());
+
         isTransitioning = false;
+    }
+
+    private IEnumerator ResumeTimerAfterStartTransition()
+    {
+        float waitTime = Mathf.Max(0f, startTransitionDuration);
+        if (waitTime > 0f)
+            yield return new WaitForSecondsRealtime(waitTime);
+
+        RunTimerManager.ResumeTimer();
     }
 
     private void RefreshLevelText(string sceneName)

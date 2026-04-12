@@ -71,6 +71,22 @@ public class RunTimerManager : MonoBehaviour
             Instance.ResetTimerInternal();
     }
 
+    public static void ResumeTimer()
+    {
+        EnsureInstance();
+
+        if (Instance != null)
+            Instance.ResumeTimerInternal();
+    }
+
+    public static void PauseTimer()
+    {
+        EnsureInstance();
+
+        if (Instance != null)
+            Instance.PauseTimerInternal();
+    }
+
     private static void EnsureInstance()
     {
         if (Instance != null)
@@ -89,7 +105,19 @@ public class RunTimerManager : MonoBehaviour
     private void ResetTimerInternal()
     {
         elapsedTime = 0f;
+        isFrozen = true;
+        UpdateTimerText();
+    }
+
+    private void ResumeTimerInternal()
+    {
         isFrozen = false;
+        UpdateTimerText();
+    }
+
+    private void PauseTimerInternal()
+    {
+        isFrozen = true;
         UpdateTimerText();
     }
 
