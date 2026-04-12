@@ -32,6 +32,8 @@ public class LevelGoal : MonoBehaviour
             if (particles != null)
                 particles.Play();
 
+            RunTimerManager.FreezeTimer();
+
             if (AudioManager.Instance != null)
                 AudioManager.Instance.PlayLevelGoal();
                 

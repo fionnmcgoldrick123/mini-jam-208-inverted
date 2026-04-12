@@ -54,6 +54,7 @@ public class SceneTransition : MonoBehaviour
 
     private void Start()
     {
+        RunTimerManager.ResetTimer();
         RefreshLevelText(SceneManager.GetActiveScene().name);
         BeginStartTransition();
     }
@@ -69,6 +70,7 @@ public class SceneTransition : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
     {
+        RunTimerManager.ResetTimer();
         RefreshLevelText(scene.name);
         BeginStartTransition();
     }

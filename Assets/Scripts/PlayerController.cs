@@ -73,6 +73,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
         rb.gravityScale = baseGravityScale;
+        RunTimerManager.ResetTimer();
 
         if (gunObject == null)
         {
@@ -323,6 +324,7 @@ public class PlayerController : MonoBehaviour
         isDead = true;
         isJumping = false;
         jumpCut = false;
+        RunTimerManager.ResetTimer();
         rb.linearVelocity = Vector2.zero;
         rb.bodyType = RigidbodyType2D.Kinematic;
         if (gunObject != null)
