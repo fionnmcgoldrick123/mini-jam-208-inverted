@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource shotgunShotSource;
     [SerializeField] private AudioSource jumpSource;
     [SerializeField] private AudioSource deathSource;
+    [SerializeField] private AudioSource enemyDeathSource;
     [SerializeField] private AudioSource levelGoalSource;
 
     [Header("SFX Pitch")]
@@ -28,6 +29,7 @@ public class AudioManager : MonoBehaviour
     private float shotgunShotBaseVolume;
     private float jumpBaseVolume;
     private float deathBaseVolume;
+    private float enemyDeathBaseVolume;
     private float levelGoalBaseVolume;
 
     private void Awake()
@@ -45,6 +47,7 @@ public class AudioManager : MonoBehaviour
         shotgunShotBaseVolume = shotgunShotSource != null ? shotgunShotSource.volume : 1f;
         jumpBaseVolume = jumpSource != null ? jumpSource.volume : 1f;
         deathBaseVolume = deathSource != null ? deathSource.volume : 1f;
+        enemyDeathBaseVolume = enemyDeathSource != null ? enemyDeathSource.volume : 1f;
         levelGoalBaseVolume = levelGoalSource != null ? levelGoalSource.volume : 1f;
     }
 
@@ -79,6 +82,11 @@ public class AudioManager : MonoBehaviour
     public void PlayDeath()
     {
         PlayGameplaySfx(deathSource, deathBaseVolume);
+    }
+
+    public void PlayEnemyDeath()
+    {
+        PlayGameplaySfx(enemyDeathSource, enemyDeathBaseVolume);
     }
 
     public void PlayLevelGoal()

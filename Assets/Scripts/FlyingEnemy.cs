@@ -133,6 +133,9 @@ public class FlyingEnemy : MonoBehaviour
     {
         isDead = true;
 
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayEnemyDeath();
+
         if (shootRoutine != null)
             StopCoroutine(shootRoutine);
 
