@@ -347,12 +347,13 @@ MonoBehaviour:
   playerRb: {fileID: 3102248566110250253}
   gunView: {fileID: 8806626624275682494}
   cameraShake: {fileID: 3348994088824081619, guid: bae890b39f18dde4f863912b994b1ddf, type: 3}
-  revolverShakeIntensity: 0.05
-  revolverShakeDuration: 0.08
+  revolverShakeIntensity: 0
+  revolverShakeDuration: 0
   shotgunShakeIntensity: 0.5
   shotgunShakeDuration: 0.12
   shotgunAmmoText: {fileID: 0}
   shotgunAmmoAnimator: {fileID: 0}
+  shotgunAmmoAnimationResetDelay: 0.12
 --- !u!114 &8050381305028736681
 MonoBehaviour:
   m_ObjectHideFlags: 0
