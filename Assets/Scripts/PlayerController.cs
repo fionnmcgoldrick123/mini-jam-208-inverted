@@ -271,7 +271,7 @@ public class PlayerController : MonoBehaviour
     {
         int jumpWallDirection = wallDirection != 0 ? wallDirection : (wallJumpBufferTimer > 0f ? bufferedWallDirection : 0);
 
-        if (jumpBufferTimer <= 0 || jumpWallDirection == 0 || isGrounded || !IsMovingIntoWall(jumpWallDirection))
+        if (jumpBufferTimer <= 0 || jumpWallDirection == 0 || isGrounded)
             return;
 
         isJumping = true;
@@ -286,16 +286,6 @@ public class PlayerController : MonoBehaviour
 
         if (AudioManager.Instance != null)
             AudioManager.Instance.PlayJump();
-    }
-
-    private bool IsMovingIntoWall(int direction)
-    {
-        float moveX = Input.GetAxisRaw("Horizontal");
-
-        if (Mathf.Abs(moveX) > 0.01f)
-            return direction > 0 ? moveX > 0f : moveX < 0f;
-
-        return direction > 0 ? rb.linearVelocity.x > 0.01f : rb.linearVelocity.x < -0.01f;
     }
 
     public void LaunchFromSpring(float springForce)
