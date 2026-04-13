@@ -427,8 +427,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9a8bff23bda0a564d823f2f6f2f075d8, type: 2}
-  m_sharedMaterial: {fileID: -7341857326883630700, guid: 9a8bff23bda0a564d823f2f6f2f075d8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
+  m_sharedMaterial: {fileID: 6602956305915764849, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -517,6 +517,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: 1-1
+  hoverScale: 1.08
+  scaleSpeed: 12
 --- !u!1001 &1025670531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -632,7 +634,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 685805505004212226, guid: bae890b39f18dde4f863912b994b1ddf, type: 3}
       propertyPath: orthographic size
-      value: 6.859375
+      value: 7.671875
       objectReference: {fileID: 0}
     - target: {fileID: 2801734962751823166, guid: bae890b39f18dde4f863912b994b1ddf, type: 3}
       propertyPath: m_Name
@@ -744,8 +746,8 @@ MonoBehaviour:
 
     Music by lithgen fahey (on Spotify)'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9a8bff23bda0a564d823f2f6f2f075d8, type: 2}
-  m_sharedMaterial: {fileID: -7341857326883630700, guid: 9a8bff23bda0a564d823f2f6f2f075d8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
+  m_sharedMaterial: {fileID: 6602956305915764849, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

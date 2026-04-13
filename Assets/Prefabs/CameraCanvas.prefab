@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 12:20
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9a8bff23bda0a564d823f2f6f2f075d8, type: 2}
-  m_sharedMaterial: {fileID: -7341857326883630700, guid: 9a8bff23bda0a564d823f2f6f2f075d8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
+  m_sharedMaterial: {fileID: 6602956305915764849, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -157,6 +157,7 @@ MonoBehaviour:
   fontSize: 24
   textColor: {r: 1, g: 1, b: 1, a: 1}
   timeFormat: '{0:0.000}'
+  hiddenSceneName: MainMenu
 --- !u!1 &2308587992259948664
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,8 +444,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 3
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9a8bff23bda0a564d823f2f6f2f075d8, type: 2}
-  m_sharedMaterial: {fileID: -7341857326883630700, guid: 9a8bff23bda0a564d823f2f6f2f075d8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
+  m_sharedMaterial: {fileID: 6602956305915764849, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
