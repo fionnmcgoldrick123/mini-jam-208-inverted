@@ -245,8 +245,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Watch out for spikes and saw blades too!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
-  m_sharedMaterial: {fileID: 6602956305915764849, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -270,8 +270,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.4
-  m_fontSizeBase: 0.4
+  m_fontSize: 0.3
+  m_fontSizeBase: 0.3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -30232,8 +30232,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Bennie loves carrots! Eat the tasty carrot to beat the level!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
-  m_sharedMaterial: {fileID: 6602956305915764849, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -30257,8 +30257,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.5
-  m_fontSizeBase: 0.5
+  m_fontSize: 0.3
+  m_fontSizeBase: 0.3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -30904,8 +30904,8 @@ MonoBehaviour:
 
     Just blast and trust me :)'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
-  m_sharedMaterial: {fileID: 6602956305915764849, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -30929,8 +30929,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.5
-  m_fontSizeBase: 0.5
+  m_fontSize: 0.3
+  m_fontSizeBase: 0.3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -31042,8 +31042,8 @@ MonoBehaviour:
 
     to jump!'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
-  m_sharedMaterial: {fileID: 6602956305915764849, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -31067,8 +31067,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.5
-  m_fontSizeBase: 0.5
+  m_fontSize: 0.3
+  m_fontSizeBase: 0.3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -31684,8 +31684,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Combine it all and have fun :)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
-  m_sharedMaterial: {fileID: 6602956305915764849, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -31709,8 +31709,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.5
-  m_fontSizeBase: 0.5
+  m_fontSize: 0.3
+  m_fontSizeBase: 0.3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -31820,8 +31820,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: LEFT CLICK to use basic shot!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
-  m_sharedMaterial: {fileID: 6602956305915764849, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -31845,8 +31845,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.5
-  m_fontSizeBase: 0.5
+  m_fontSize: 0.3
+  m_fontSizeBase: 0.3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -32021,8 +32021,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Touch springs to bounce you upward!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
-  m_sharedMaterial: {fileID: 6602956305915764849, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -32046,8 +32046,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.5
-  m_fontSizeBase: 0.5
+  m_fontSize: 0.3
+  m_fontSizeBase: 0.3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -32219,8 +32219,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Hold SPACE for bigger jump!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
-  m_sharedMaterial: {fileID: 6602956305915764849, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -32244,8 +32244,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.5
-  m_fontSizeBase: 0.5
+  m_fontSize: 0.3
+  m_fontSizeBase: 0.3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -32375,8 +32375,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Killing an enemy gives you a stronger shell!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
-  m_sharedMaterial: {fileID: 6602956305915764849, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -32400,8 +32400,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.5
-  m_fontSizeBase: 0.5
+  m_fontSize: 0.3
+  m_fontSizeBase: 0.3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -32967,8 +32967,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Run into wall and press SPACE to wall jump!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
-  m_sharedMaterial: {fileID: 6602956305915764849, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -32992,8 +32992,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.5
-  m_fontSizeBase: 0.5
+  m_fontSize: 0.3
+  m_fontSizeBase: 0.3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -33232,8 +33232,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Use RIGHT CLICK to use powerful shell and clear gaps!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
-  m_sharedMaterial: {fileID: 6602956305915764849, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -33257,8 +33257,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.5
-  m_fontSizeBase: 0.5
+  m_fontSize: 0.3
+  m_fontSizeBase: 0.3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -33425,8 +33425,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Stronger shells can blast you in the opposite direction.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
-  m_sharedMaterial: {fileID: 6602956305915764849, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -33450,8 +33450,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.5
-  m_fontSizeBase: 0.5
+  m_fontSize: 0.3
+  m_fontSizeBase: 0.3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -33623,8 +33623,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: NICE!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
-  m_sharedMaterial: {fileID: 6602956305915764849, guid: 2bedcb80483a5f4438f6d5dbf2343e80, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -33648,8 +33648,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.5
-  m_fontSizeBase: 0.5
+  m_fontSize: 0.3
+  m_fontSizeBase: 0.3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
