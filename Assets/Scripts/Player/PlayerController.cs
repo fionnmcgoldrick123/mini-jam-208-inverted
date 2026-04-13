@@ -59,6 +59,7 @@ public class PlayerController : MonoBehaviour
     private float coyoteTimer;
     private float jumpBufferTimer;
     private bool jumpCut;
+    private bool jumpCutSuppressedUntilGrounded;
     private bool isJumping;
     private bool bhopProtected;
     private int wallDirection;
@@ -67,7 +68,11 @@ public class PlayerController : MonoBehaviour
     private float wallJumpLockTimer;
 
     public void SetBhopProtected() { bhopProtected = true; }
-    public void ClearJumpCut() { jumpCut = false; }
+    public void ClearJumpCut()
+    {
+        jumpCut = false;
+        jumpCutSuppressedUntilGrounded = true;
+    }
 
     private void Awake()
     {
@@ -122,6 +127,7 @@ public class PlayerController : MonoBehaviour
             {
                 isJumping = false;
                 jumpCut = false;
+                jumpCutSuppressedUntilGrounded = false;
             }
         }
         else
@@ -172,7 +178,7 @@ public class PlayerController : MonoBehaviour
             jumpBufferTimer -= Time.deltaTime;
         }
 
-        if (Input.GetKeyUp(KeyCode.Space) && isJumping && rb.linearVelocity.y > 0)
+        if (Input.GetKeyUp(KeyCode.Space) && isJumping && rb.linearVelocity.y > 0 && !jumpCutSuppressedUntilGrounded)
         {
             jumpCut = true;
         }
@@ -298,6 +304,7 @@ public class PlayerController : MonoBehaviour
 
         isJumping = false;
         jumpCut = false;
+        jumpCutSuppressedUntilGrounded = false;
         jumpBufferTimer = 0f;
         coyoteTimer = 0f;
         rb.gravityScale = baseGravityScale;
@@ -326,6 +333,7 @@ public class PlayerController : MonoBehaviour
         isDead = true;
         isJumping = false;
         jumpCut = false;
+        jumpCutSuppressedUntilGrounded = false;
         RunTimerManager.PauseTimer();
         rb.linearVelocity = Vector2.zero;
         rb.bodyType = RigidbodyType2D.Kinematic;
