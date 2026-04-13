@@ -224,6 +224,12 @@ public class WeaponController : MonoBehaviour
         SetShotgunHudVisible(false);
     }
 
+    public void ShowShotgunHud()
+    {
+        SetShotgunHudVisible(true);
+        UpdateAmmoUI();
+    }
+
     private void HandleStartTransitionCompleted()
     {
         SetShotgunHudVisible(true);

@@ -9,7 +9,7 @@ public class RunTimerManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private TMP_Text timerText;
-    [SerializeField] private bool autoCreateText = true;
+    [SerializeField] private bool autoCreateText = false;
     [SerializeField] private string labelText = "TIME";
     [SerializeField] private bool showLabel = true;
     [SerializeField] private Vector2 anchoredPosition = new Vector2(-24f, -24f);
@@ -24,6 +24,7 @@ public class RunTimerManager : MonoBehaviour
 
     private float elapsedTime;
     private bool isFrozen;
+    private bool isHiddenByPause;
     private Canvas timerCanvas;
 
     private void Awake()
@@ -63,6 +64,7 @@ public class RunTimerManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
     {
+        isHiddenByPause = false;
         ApplySceneVisibility(scene.name);
         ResetTimerInternal();
     }
@@ -89,6 +91,14 @@ public class RunTimerManager : MonoBehaviour
 
         if (Instance != null)
             Instance.PauseTimerInternal();
+    }
+
+    public static void SetVisible(bool visible)
+    {
+        EnsureInstance();
+
+        if (Instance != null)
+            Instance.SetVisibleInternal(visible);
     }
 
     private static void EnsureInstance()
@@ -139,6 +149,12 @@ public class RunTimerManager : MonoBehaviour
         UpdateTimerText();
     }
 
+    private void SetVisibleInternal(bool visible)
+    {
+        isHiddenByPause = !visible;
+        ApplySceneVisibility(SceneManager.GetActiveScene().name);
+    }
+
     private void UpdateTimerText()
     {
         if (timerText == null || (timerCanvas != null && !timerCanvas.gameObject.activeSelf))
@@ -180,7 +196,7 @@ public class RunTimerManager : MonoBehaviour
 
     private void ApplySceneVisibility(string sceneName)
     {
-        bool showTimer = !string.Equals(sceneName, hiddenSceneName, System.StringComparison.OrdinalIgnoreCase);
+        bool showTimer = !string.Equals(sceneName, hiddenSceneName, System.StringComparison.OrdinalIgnoreCase) && !isHiddenByPause;
 
         if (!showTimer)
         {
