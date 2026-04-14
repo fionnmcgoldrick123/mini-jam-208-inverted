@@ -29,6 +29,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float wallJumpLockTime = 0.15f;
     [SerializeField] private LayerMask wallLayer;
 
+    [Header("Wall Slide")]
+    [SerializeField] private float wallSlideFriction = 0.5f;
+    [SerializeField] private float wallSlideMaxFallSpeed = 3f;
+    [SerializeField] private float wallMomentumMultiplier = 0.8f;
+    [SerializeField] private float wallMomentumDecay = 3f;
+
     [Header("Gravity")]
     [SerializeField] private float baseGravityScale = 3f;
     [SerializeField] private float fallGravityScale = 6f;
@@ -66,6 +72,9 @@ public class PlayerController : MonoBehaviour
     private int bufferedWallDirection;
     private float wallJumpBufferTimer;
     private float wallJumpLockTimer;
+    private bool isWallSliding;
+    private bool wasWallSlidingLastFrame;
+    private float wallSlideMomentum;
 
     public void SetBhopProtected() { bhopProtected = true; }
     public void ClearJumpCut()
@@ -95,6 +104,7 @@ public class PlayerController : MonoBehaviour
         if (isDead) return;
 
         wasGrounded = isGrounded;
+        wasWallSlidingLastFrame = isWallSliding;
         UpdateGroundedState();
         UpdateWallState();
         HandleJumpInput();
@@ -109,6 +119,7 @@ public class PlayerController : MonoBehaviour
 
         ApplyMovement();
         ApplyGravityScale();
+        ApplyWallSlide();
         TryJump();
         TryWallJump();
 
@@ -143,6 +154,8 @@ public class PlayerController : MonoBehaviour
             wallDirection = 0;
             bufferedWallDirection = 0;
             wallJumpBufferTimer = 0f;
+            isWallSliding = false;
+            wallSlideMomentum = 0f;
             return;
         }
 
@@ -164,6 +177,26 @@ public class PlayerController : MonoBehaviour
         else
         {
             wallJumpBufferTimer -= Time.deltaTime;
+            isWallSliding = false;
+            wallSlideMomentum = 0f;
+        }
+
+        // Check if player is pressing towards the wall
+        float moveX = Input.GetAxisRaw("Horizontal");
+        if (wallDirection != 0 && Mathf.Sign(moveX) == wallDirection)
+        {
+            isWallSliding = true;
+            
+            // Capture momentum on first wall contact
+            if (!wasWallSlidingLastFrame && rb.linearVelocity.y > 0)
+            {
+                wallSlideMomentum = rb.linearVelocity.y * wallMomentumMultiplier;
+            }
+        }
+        else
+        {
+            isWallSliding = false;
+            wallSlideMomentum = 0f;
         }
     }
 
@@ -256,6 +289,34 @@ public class PlayerController : MonoBehaviour
         else
         {
             rb.gravityScale = baseGravityScale;
+        }
+    }
+
+    private void ApplyWallSlide()
+    {
+        if (!isWallSliding || isGrounded)
+        {
+            wallSlideMomentum = 0f;
+            return;
+        }
+
+        // Decay wall momentum over time
+        wallSlideMomentum = Mathf.Max(0f, wallSlideMomentum - wallMomentumDecay * Time.fixedDeltaTime);
+
+        // If we still have momentum, apply upward force
+        if (wallSlideMomentum > 0f)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, wallSlideMomentum);
+        }
+        else
+        {
+            // When momentum is depleted, apply friction for downward slide
+            if (rb.linearVelocity.y < 0)
+            {
+                float newY = Mathf.Lerp(rb.linearVelocity.y, 0f, wallSlideFriction * Time.fixedDeltaTime);
+                newY = Mathf.Max(newY, -wallSlideMaxFallSpeed);
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, newY);
+            }
         }
     }
 
