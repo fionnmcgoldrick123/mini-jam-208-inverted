@@ -201,6 +201,12 @@ public class WeaponController : MonoBehaviour
         }
     }
 
+    public void AddShotgunAmmo(int amount)
+    {
+        shotgunAmmo += amount;
+        UpdateAmmoUI();
+    }
+
     private System.Collections.IEnumerator ResetShotgunAmmoAnimationAfterDelay()
     {
         yield return new WaitForSeconds(shotgunAmmoAnimationResetDelay);
