@@ -125,7 +125,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: tree
     originalName: 
-    pivot: {x: 0.44285712, y: -0.1}
+    pivot: {x: 0.5, y: -0.016393442}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -133,8 +133,8 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 35
-      height: 60
+      width: 32
+      height: 61
     spriteID: 3917a22c849320b49bee072bcbb6f384
     spriteBone: []
     spriteOutline: []
@@ -163,9 +163,9 @@ ScriptedImporter:
       additiveSortOrder: 0
       cellRect:
         x: 16
-        y: 6
-        width: 35
-        height: 60
+        y: 1
+        width: 32
+        height: 61
       spriteId: 3917a22c849320b49bee072bcbb6f384
     linkedCells: []
     parentIndex: -1
@@ -245,5 +245,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 63, y: 67}
+  canvasSize: {x: 64, y: 64}
   previousTextureSize: {x: 64, y: 128}
