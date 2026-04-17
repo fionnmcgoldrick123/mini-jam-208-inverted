@@ -28,6 +28,7 @@ public class Crosshair : MonoBehaviour
     private void Update()
     {
         if (rectTransform == null) return;
+        if (Time.timeScale == 0) return;
 
         Vector3 mouseScreenPos = Input.mousePosition;
         rectTransform.position = mouseScreenPos;

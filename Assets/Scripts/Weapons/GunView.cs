@@ -29,6 +29,8 @@ public class GunView : MonoBehaviour
 
     private void Update()
     {
+        if (Time.timeScale == 0) return;
+
         Vector2 mouseWorld = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         Vector2 gunPivot = transform.position;
         Vector2 dirToMouse = (mouseWorld - gunPivot).normalized;

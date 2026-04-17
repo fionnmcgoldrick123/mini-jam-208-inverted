@@ -9,6 +9,7 @@ public class TestScript : MonoBehaviour
     private Camera mainCamera;
     private PixelPerfectCamera pixelPerfectCamera;
     private bool isLowResolution = true; // Start at 320x180
+    private bool isPaused = false;
 
     private void Start()
     {
@@ -21,6 +22,13 @@ public class TestScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Q)){
+            // toggle pause
+            isPaused = !isPaused;
+            Time.timeScale = isPaused ? 0f : 1f;
+            Debug.Log(isPaused ? "Game paused" : "Game resumed");
+        }
+
         if(Input.GetKeyDown(KeyCode.V)){
             // restart scene called TestScene
             SceneTransition.LoadScene("TestScene");
